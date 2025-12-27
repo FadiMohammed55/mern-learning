@@ -4,6 +4,7 @@ const taskList = document.getElementById("taskList");
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
+// render tasks to the DOM
 const renderTasks = () => {
   taskList.innerHTML = "";
 
@@ -26,6 +27,7 @@ const renderTasks = () => {
   });
 };
 
+// add new task
 const addTask = () => {
   const text = taskInput.value.trim();
   if (!text) return;
@@ -37,18 +39,21 @@ const addTask = () => {
   renderTasks();
 };
 
+// toggle task completion
 const toggleTask = (index) => {
   tasks[index].completed = !tasks[index].completed;
   saveTasks();
   renderTasks();
 };
 
+// delete task
 const deleteTask = (index) => {
   tasks.splice(index, 1);
   saveTasks();
   renderTasks();
 };
 
+// save tasks to Local Storage
 const saveTasks = () => {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };

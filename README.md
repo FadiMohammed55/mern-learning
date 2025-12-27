@@ -4,3 +4,5 @@ Day 2: JavaScript fundamentals
 Day 3: arrays and objects
 Day 4: Async JavaScript & Promises
 Day 5: Fetch API & API interaction
+Day 6: Complete vanilla JS task manager project
+Day 7: Review, refactor and clean code

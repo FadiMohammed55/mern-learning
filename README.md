@@ -9,3 +9,4 @@ Day 7: Review, refactor and clean code
 Day 8: Node.js backend setup
 Day 9: Express routes and REST API
 Day 10: MongoDB setup and connection
+Day 11: Mongoose models and database CRUD

@@ -1,11 +1,21 @@
-function App() {
+import { useState } from "react";
+import Greeting from "./components/Greeting.jsx";
 
-  const name = "Fadi";
+function App() {
+  <Greeting name="Fadi" />;
+
+  const [tasks, setTasks] = useState([]);
+
+  const addTask = (tasks) => {
+    setTasks([...tasks, "New Task"]);
+  };
+
   return (
-    <div>
-      <h1>Hello {name}</h1>
-      <p>This is my first React app</p>
-    </div>
+    <ul>
+      {tasks.map((task, index) => (
+        <li key={index}>{task}</li>
+      ))}
+    </ul>
   );
 }
 

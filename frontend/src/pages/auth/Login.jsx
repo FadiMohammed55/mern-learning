@@ -1,12 +1,24 @@
 import { useState } from "react";
+import api from "../../api/axios";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ email, password });
+
+    try {
+      const res = await api.post("/auth/login", {
+         email,
+          password
+         });
+
+         localStorage.setItem("token", res.data.token);
+         alert("Login successful!");
+    } catch (error) {
+      alert("Login failed")
+    }
   };
 
   return (

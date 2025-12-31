@@ -5,6 +5,13 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // await api.post("/auth/register", {
+  //   name,
+  //   email,
+  //   password
+  // });
+  //   alert("Registered successfully");
+
   return (
     <form>
       <h2>Register</h2>

@@ -1,21 +1,13 @@
-import { useState } from "react";
-import Greeting from "./components/Greeting.jsx";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 function App() {
-  <Greeting name="Fadi" />;
-
-  const [tasks, setTasks] = useState([]);
-
-  const addTask = (tasks) => {
-    setTasks([...tasks, "New Task"]);
-  };
-
   return (
-    <ul>
-      {tasks.map((task, index) => (
-        <li key={index}>{task}</li>
-      ))}
-    </ul>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
   );
 }
 

@@ -18,3 +18,4 @@ Day 16: React state and props
 Day 17: useEffect and routing
 Day 18: Auth UI pages
 Day 19: Axios and auth integration
+Day 20: Tailwind and UI styling

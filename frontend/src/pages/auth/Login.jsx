@@ -10,19 +10,25 @@ function Login() {
 
     try {
       const res = await api.post("/auth/login", {
-         email,
-          password
-         });
+        email,
+        password,
+      });
 
-         localStorage.setItem("token", res.data.token);
-         alert("Login successful!");
+      localStorage.setItem("token", res.data.token);
+      alert("Login successful!");
     } catch (error) {
-      alert("Login failed")
+      alert("Login failed");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="card w-96 bg-base-100 shadow-xl p-6"
+    >
+      <nav className="navbar bg-base-200">
+        <a className="btn btn-ghost">Task Manager</a>
+      </nav>
       <h2>Login</h2>
 
       <input
@@ -30,6 +36,7 @@ function Login() {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        className="input input-bordered"
       />
 
       <input
@@ -37,9 +44,12 @@ function Login() {
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        className="input input-bordered"
       />
 
-      <button type="submit">Login</button>
+      <button type="submit" className="btn btn-primary">
+        Login
+      </button>
     </form>
   );
 }

@@ -10,3 +10,4 @@ Day 8: Node.js backend setup
 Day 9: Express routes and REST API
 Day 10: MongoDB setup and connection
 Day 11: Mongoose models and database CRUD
+Day 12: User authentication with JWT

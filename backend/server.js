@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import connectDB from "./config/db.js";
 import Task from "./models/Task.js";
 import User from "./models/User.js";
+import protect from "./middleware/authMiddleware.js";
 
 dotenv.config();
 connectDB();
@@ -21,12 +22,12 @@ app.get("/", (req, res) => {
   res.send("Srever is running");
 });
 
-app.get("/api/tasks", async (req, res) => {
+app.get("/api/tasks", protect, async (req, res) => {
   const tasks = await Task.find();
   res.json(tasks);
 });
 
-app.post("/api/tasks", async (req, res) => {
+app.post("/api/tasks", protect, async (req, res) => {
   const task = await Task.create(req.body);
   res.status(201).json(task);
 });
@@ -63,14 +64,14 @@ app.post("/api/users/login", async (req, res) => {
   res.json({ token });
 });
 
-app.put("/api/tasks/:id", async (req, res) => {
+app.put("/api/tasks/:id", protect, async (req, res) => {
   const task = await Task.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
   res.json(task);
 });
 
-app.delete("/api/tasks/:id", async (req, res) => {
+app.delete("/api/tasks/:id", protect, async (req, res) => {
   await Task.findByIdAndDelete(req.params.id);
   res.json({ message: "Task deleted" });
 });

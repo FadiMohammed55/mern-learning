@@ -13,3 +13,4 @@ Day 11: Mongoose models and database CRUD
 Day 12: User authentication with JWT
 Day 13: Protected routes and authorization
 Day 14: Backend refactor and best practices
+Day 15: React setup and basics

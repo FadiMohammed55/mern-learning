@@ -6,6 +6,7 @@ import connectDB from "./config/db.js";
 import Task from "./models/Task.js";
 import User from "./models/User.js";
 import protect from "./middleware/authMiddleware.js";
+import taskRoutes from "./routes/taskRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -22,10 +23,7 @@ app.get("/", (req, res) => {
   res.send("Srever is running");
 });
 
-app.get("/api/tasks", protect, async (req, res) => {
-  const tasks = await Task.find();
-  res.json(tasks);
-});
+app.use("/api/tasks", taskRoutes);
 
 app.post("/api/tasks", protect, async (req, res) => {
   const task = await Task.create(req.body);
